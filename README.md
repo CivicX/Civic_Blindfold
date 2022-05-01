@@ -1,4 +1,4 @@
-# Civic_Blindfold-Master
+# Civic_Blindfold
 Created a simple blind fold script so you can take screen shots of in game chat or other things. Usage: /blindfold /blindfoldoff
 
 #How to install 
