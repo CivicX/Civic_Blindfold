@@ -1,11 +1,19 @@
-------By Civic-----
+local IsOnBlindfold = false
 
 RegisterCommand("blindfold", function()
-  SetNuiFocus(false,false)
-  SendNUIMessage({type = 'displayblindfold'})
+  if not IsOnBlindfold then  
+    SetNuiFocus(false,false)
+    SendNUIMessage({type = 'displayblindfold'})
+    Notify('You\'ve put your blindfold on.')
+    IsOnBlindfold = true
+  else
+    SetNuiFocus(false,false)
+    SendNUIMessage({type = 'removeblindfold'})
+    Notify('You\'ve taken your blindfold off.')
+    IsOnBlindfold = false
+  end
 end, false)
 
-RegisterCommand("blindfoldoff", function()
-  SetNuiFocus(false,false)
-  SendNUIMessage({type = 'removeblindfold'})
-end, false)
+function Notify(output)
+    TriggerEvent('chatMessage', '^1SYSTEM: ', output)
+end
